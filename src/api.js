@@ -1,6 +1,8 @@
 import axios from "axios";
 
-export const API_BASE_URL = "http://localhost:8080";
+// export const API_BASE_URL = "http://localhost:8080";
+export const API_BASE_URL = "https://tic-tac-toe-api.nreyes.dev/api";
+
 const LS_PLAYER_ID_KEY = "nreyes_tic_tac_toe_player_id";
 
 export function getPlayerId() {
