@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 function GameBoard({ game, onMove }) {
+  const [showMoves, setShowMoves] = useState(false);
+
   const emptyBoard = [
     [".", ".", "."],
     [".", ".", "."],
@@ -44,6 +48,11 @@ function GameBoard({ game, onMove }) {
     if (cell && cell !== ".") return;
     onMove(x, y);
   }
+
+  const movesText =
+    game?.moves && game.moves.length > 0
+      ? `[${game.moves.map((m) => `(${m.x}, ${m.y})`).join(", ")}]`
+      : "No moves yet.";
 
   return (
     <section className="rounded-xl border border-slate-800 bg-slate-900/70 p-4 flex flex-col h-full">
@@ -120,6 +129,25 @@ function GameBoard({ game, onMove }) {
               {game.human_plays_as}
             </span>
             .
+          </div>
+
+          {/* Collapsible moves list */}
+          <div className="w-full max-w-xs mt-2 text-xs text-slate-400">
+            <button
+              type="button"
+              onClick={() => setShowMoves((v) => !v)}
+              className="flex items-center justify-between w-full rounded-md border border-slate-700 bg-slate-900/70 px-3 py-1.5 hover:bg-slate-800/80 transition"
+            >
+              <span>See list of moves for this game</span>
+              <span className="text-[10px] text-slate-300">
+                {showMoves ? "▲" : "▼"}
+              </span>
+            </button>
+            {showMoves && (
+              <div className="mt-1 font-mono text-[11px] text-slate-200 break-words">
+                {movesText}
+              </div>
+            )}
           </div>
         </div>
       )}
