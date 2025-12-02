@@ -69,7 +69,7 @@ function GameHistory({ games, loading, error, selectedGameId, onSelectGame }) {
           to start playing.
         </div>
       ) : (
-        <ul className="space-y-1 overflow-y-auto pr-1 text-sm">
+        <ul className="space-y-1 overflow-y-auto pr-1 text-sm max-h-64 md:max-h-128">
           {[...games]
             .slice()
             .reverse() // show newest first

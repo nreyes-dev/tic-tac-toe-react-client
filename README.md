@@ -1,5 +1,5 @@
 # tic-tac-toe-react-client
-React/Vite client for [https://github.com/nreyes-dev/tic-tac-toe-api](https://github.com/nreyes-dev/tic-tac-toe-api)
+A responsive React/Vite client for [https://github.com/nreyes-dev/tic-tac-toe-api](https://github.com/nreyes-dev/tic-tac-toe-api)
 
 ## How to run locally
 
